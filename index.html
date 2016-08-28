@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+ 	<title>JS-Mod14</title>
+    <script src="js/lodash.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body>
+
+<script type="text/template" id="make_form">
+    <div class="testLine">
+        <p>Programming test</p>
+    </div>
+    <form name="<%= formAttr.name%>" method="<%= formAttr.method%>">
+        <ol>
+        <% var i = 0;
+        quesstions.forEach(function (quesstion) {
+            var j = 0;
+            i++; %>
+            <li class="liStyle">
+                <%= quesstion %>
+                <%answers['answers_' + i].forEach(function (answer) {
+                j++;%>
+                <div>
+                    <input type="checkbox" id="<%= ('line' + i + j) %>">
+                    <label for="<%= ('line' + i + j) %>">
+                        <%= answer %>
+                    </label>
+                </div>
+                <% }); %>
+            </li>
+        <% });%>
+        </ol>
+        <div class="inputBox">
+            <input type="submit" value="Check results" id="submit-form" class="cssClass submitStyle">
+        </div>
+    </form>
+</script>
+
+<script type="text/template" id="make_modal">
+    <div id="cover-div">
+        <div id="prompt-form-container">
+            <form id="prompt-form">
+              <h2>Test result</h2>
+              <div id="prompt-message"></div>
+              <input type="submit" value="Ок">
+              <input type="button" name="restart" value="Try again">
+            </form>
+        </div>
+    </div>
+</script>
+
+</body>
+</html>
